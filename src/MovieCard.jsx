@@ -14,9 +14,9 @@ const MovieCard = ({m}) => {
 
 
           </div>
-          {/* <div>
-          <img src={imgM}/>
-          </div> */}
+           <div>
+          <img src={'https://image.tmdb.org/t/p/w500' + m.poster_path}/>
+          </div> 
           <div>
           <h3>{m.title}</h3>
 
