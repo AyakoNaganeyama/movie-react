@@ -40,7 +40,7 @@ const imgM = "https://image.tmdb.org/t/p/w500/qhb1qOilapbapxWQn9jtRCMwXJF.jpg";
     const r = await fetch(`https://api.themoviedb.org/3/search/movie?query=${title}&api_key=269cc3c6e36c92b7c9e8327503a89d3d`);
 const data = await r.json();
 
-setM(data.results);
+console.log(data.results);
 
 
 }
@@ -60,22 +60,43 @@ useEffect(() => {searchMovie("Wonka");},[]);
 
       </div>
 
-{
-movies?.length >0?(
+
 
   <div className="container">
 
-  <MovieCard movie1={movies[0]}/>
+
+  {movies?.length > 0 ? (
+  movies.map((movie) => (
+    <MovieCard m={movie} key={movie.id} />
+  ))
+) : (
+  <div className="empty">
+    <h2>no movie found</h2>
+  </div>
+)}
+    {/* <MovieCard m = {movies[2]}/> */}
+  {/* {
+movies?.length >0?(
+    
+    movies.map((movie) =>{
+
+<MovieCard m = {movie}/>
+
+
+
+    })
+
+    ):(
+
+      <div className="empty">
+    
+        <h2>no movie found</h2>
+      </div>
+    )}
+     */}
 
 
    </div>
-):(
-
-  <div className="empty">
-
-    <h2>no movie found</h2>
-  </div>
-)
 
 
 }

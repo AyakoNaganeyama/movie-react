@@ -1,7 +1,7 @@
 import React from "react";
-const imgM = "https://image.tmdb.org/t/p/w500/qhb1qOilapbapxWQn9jtRCMwXJF.jpg";
+//const imgM = "https://image.tmdb.org/t/p/w500/qhb1qOilapbapxWQn9jtRCMwXJF.jpg";
 
-const MovieCard = ({movie1}) => {
+const MovieCard = ({m}) => {
 
     return (
         <>
@@ -9,16 +9,16 @@ const MovieCard = ({movie1}) => {
 
 <div className="movie">
           <div>
-            {movie1.release_date}
+            {m.release_date}
            
 
 
           </div>
-          <div>
+          {/* <div>
           <img src={imgM}/>
-          </div>
+          </div> */}
           <div>
-          <h3>{movie1.title}</h3>
+          <h3>{m.title}</h3>
 
 
           </div>
