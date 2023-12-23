@@ -9,7 +9,7 @@ function App() {
 
   const [movies,setM] = useState([]);
   const [searchTerm,setSearchTerm] = useState("");
-  const [allMovies,setAllM] = useState([]);
+  
 
 
 //   const movie1 = {
@@ -37,9 +37,16 @@ function App() {
 
 
 
-const getMovies =()=>{
+const getTrends =async()=>{
 
-   const urlMovieList = "https://api.themoviedb.org/3/genre/movie/list?api_key=269cc3c6e36c92b7c9e8327503a89d3d";
+   const urlMovieList = "https://api.themoviedb.org/3/discover/movie?api_key=269cc3c6e36c92b7c9e8327503a89d3d";
+   const r1 = await fetch(urlMovieList);
+   //  const r = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=269cc3c6e36c92b7c9e8327503a89d3d");
+const data1 = await r1.json();
+
+setM(data1.results);
+
+
 
 };
   const searchMovie = async (title) => {
@@ -48,14 +55,26 @@ const getMovies =()=>{
 
 
     // this sends get request to https://api.themoviedb.org. s is parapmater for search 
-    const r = await fetch(`https://api.themoviedb.org/3/search/movie?query=${title}&api_key=269cc3c6e36c92b7c9e8327503a89d3d`);
+     const r = await fetch(`https://api.themoviedb.org/3/search/movie?query=${title}&api_key=269cc3c6e36c92b7c9e8327503a89d3d`);
+    //  const r = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=269cc3c6e36c92b7c9e8327503a89d3d");
 const data = await r.json();
 
 setM(data.results);
 
 
 }
-useEffect(() => {searchMovie("Wonka");},[]);
+
+const getVideos = async () => {
+
+  
+
+
+};
+
+
+
+
+useEffect(() => {getTrends();},[]);
 
 
 
