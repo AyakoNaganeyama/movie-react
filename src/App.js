@@ -5,6 +5,7 @@ import './App.css';
 import SearchIcon from "./search.svg";
 import MovieCard from "./MovieCard";
 import YouTube from "react-youtube";
+import TitleCard from "./TitleCard";
 
 function App() {
 
@@ -46,6 +47,7 @@ const getTrends =async()=>{
 const data1 = await r1.json();
 console.log(data1.results);
 setM(data1.results);
+setSearchTerm("Trending");
 
 
 
@@ -61,6 +63,7 @@ setM(data1.results);
 const data = await r.json();
 
 setM(data.results);
+
 
 
 }
@@ -94,8 +97,10 @@ useEffect(() => {getTrends();},[]);
       </div>
 
 
+<div className="container" ><TitleCard title={searchTerm}/></div>
 
   <div className="container">
+  
 
 
   {movies?.length > 0 ? (
