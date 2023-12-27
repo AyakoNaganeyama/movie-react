@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import './App.css';
 import SearchIcon from "./search.svg";
 import MovieCard from "./MovieCard";
+import YouTube from "react-youtube";
 
 function App() {
 
@@ -43,7 +44,7 @@ const getTrends =async()=>{
    const r1 = await fetch(urlMovieList);
    //  const r = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=269cc3c6e36c92b7c9e8327503a89d3d");
 const data1 = await r1.json();
-
+console.log(data1.results);
 setM(data1.results);
 
 
@@ -64,12 +65,13 @@ setM(data.results);
 
 }
 
-const getVideos = async () => {
+// const getVideos = async (id) => {
+// const {data1} = await axios.get(`${urlMovieList}/${id}`);
 
-  
 
 
-};
+
+// };
 
 
 
@@ -81,6 +83,7 @@ useEffect(() => {getTrends();},[]);
   return (
     <div className="app">
       <h1>Ayako Movie</h1>
+      <YouTube/>
       <div className="search">
 
         <input placeholder="search title"  onChange={(e)=>{setSearchTerm(e.target.value)}}/>
