@@ -11,6 +11,7 @@ function App() {
 
   const [movies,setM] = useState([]);
   const [searchTerm,setSearchTerm] = useState("");
+  const [selectMovie,setSelectMovie] = useState("");
   
 
 
@@ -68,6 +69,22 @@ setM(data.results);
 
 }
 
+const selectedMovie = async (id) =>{
+
+
+  const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=269cc3c6e36c92b7c9e8327503a89d3d&append_to_response=videos`;
+
+    const r = await fetch(url);
+
+const data = await r.json();
+
+const trailer = r.videos.results.find(v => v.name === "official trailer");
+setSelectMovie(trailer.key);
+
+
+
+
+}
 // const getVideos = async (id) => {
 // const {data1} = await axios.get(`${urlMovieList}/${id}`);
 
@@ -86,7 +103,7 @@ useEffect(() => {getTrends();},[]);
   return (
     <div className="app">
       <h1>Ayako Movie</h1>
-      <YouTube/>
+      <YouTube videoId={selectMovie}/>
       <div className="search">
 
         <input placeholder="search title"  onChange={(e)=>{setSearchTerm(e.target.value)}}/>
@@ -105,7 +122,7 @@ useEffect(() => {getTrends();},[]);
 
   {movies?.length > 0 ? (
   movies.map((movie) => (
-    <MovieCard m={movie} key={movie.id} />
+    <MovieCard m={movie} key={movie.id} onClick={() => selectedMovie(movie.id)} />
   ))
 ) : (
   <div className="empty">
