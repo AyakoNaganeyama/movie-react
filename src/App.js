@@ -78,8 +78,23 @@ const selectedMovie = async (id) =>{
 
 const data = await r.json();
 
-const trailer = r.videos.results.find(v => v.name === "official trailer");
-setSelectMovie(trailer.key);
+    // Check if data.results is an array and not empty
+    // if (Array.isArray(data.results) && data.results.length > 0) {
+    //   const trailer = data.results.find(v => v.name === "official trailer");
+
+    //   if (trailer!=null ) {
+    //     setSelectMovie(trailer.key);
+    //   }
+    //    else {
+    //     console.warn("Official trailer not found for movie", id);
+    //   }
+    // } else {
+    //   console.warn("No video results found for movie", id);
+    // }
+
+const trailer = data.results.find(v => v.name === "Official Trailer");
+// console.log(data.results);
+ setSelectMovie(trailer.key);
 
 
 
@@ -122,7 +137,7 @@ useEffect(() => {getTrends();},[]);
 
   {movies?.length > 0 ? (
   movies.map((movie) => (
-    <MovieCard m={movie} key={movie.id} onClick={() => selectedMovie(movie.id)} />
+    <MovieCard m={movie} key={movie.id} onClick={ () => selectedMovie(movie.id)} />
   ))
 ) : (
   <div className="empty">

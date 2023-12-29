@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import App from "./App";
 //const imgM = "https://image.tmdb.org/t/p/w500/qhb1qOilapbapxWQn9jtRCMwXJF.jpg";
 // https://api.themoviedb.org/3/movie/572802/videos?language=en-US&api_key=269cc3c6e36c92b7c9e8327503a89d3d
 
 
 
 
-const MovieCard = ({m}) => {
+const MovieCard = ({m, onClick}) => {
 
 
 
@@ -14,7 +15,7 @@ const MovieCard = ({m}) => {
         <>
 
 
-<div className="movie">
+<div className="movie" onClick={onClick}>
           <div>
             {m.release_date}
            
