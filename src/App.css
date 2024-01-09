@@ -7,6 +7,13 @@
   box-sizing: border-box;
 }
 
+.s{
+
+  display: flex;
+
+
+}
+
 :root {
   --font-roboto: "Roboto Slab", serif;
   --font-raleway: "Raleway", sans-serif;
