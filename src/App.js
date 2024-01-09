@@ -113,11 +113,17 @@ const trailer = data.results.find(v => v.name === "Official Trailer");
 
 useEffect(() => {getTrends();},[]);
 
+const s = {display: "flex"};
+
 
 
   return (
     <div className="app">
-      <h1>Ayako Movie</h1>
+    <div style={s}>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tmdb.new.logo.svg"/>
+      <h1>AMovie</h1>
+      
+      </div>
       <YouTube videoId={selectMovie}/>
       <div className="search">
 
