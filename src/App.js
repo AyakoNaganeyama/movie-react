@@ -120,7 +120,7 @@ const s = {display: "flex"};
   return (
     <div className="app">
     <div style={s}>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tmdb.new.logo.svg"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tmdb.new.logo.svg" width={100} height={100}/>
       <h1>AMovie</h1>
       
       </div>

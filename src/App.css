@@ -235,4 +235,10 @@ h1 {
     width: "100%";
     margin: 1rem;
   }
+  .logo{
+    width: 20px;
+    height: 20px;
+
+
+  }
 }
